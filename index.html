@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Booking Form</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link href="./style.css" rel="stylesheet">
@@ -24,8 +26,8 @@
       <div class="item">
         <p>Passenger contact name</p>
         <div class="name-item">
-          <input type="text" name="name" placeholder="First" />
-          <input type="text" name="name" placeholder="Last" />
+          <input type="text" name="firstName" placeholder="First" />
+          <input type="text" name="lastName" placeholder="Last" />
         </div>
       </div>
       <div class="item">
@@ -34,17 +36,17 @@
       </div>
       <div class="item">
         <p>Phone</p>
-        <input type="text" name="phone" placeholder="### ### ####" />
+        <input type="tel" name="phone" placeholder="### ### ####" />
       </div>
       <div class="item">
         <p>Address</p>
-        <input type="text" name="name" placeholder="Street address" required />
-        <input type="text" name="name" placeholder="Street address line 2" required />
+        <input type="text" name="streetAddress" placeholder="Street address" required />
+        <input type="text" name="streetAddress2" placeholder="Street address line 2" />
         <div class="city-item">
-          <input type="text" name="name" placeholder="City" required />
-          <input type="text" name="name" placeholder="Region" required />
-          <input type="text" name="name" placeholder="Postal / Zip code" required />
-          <select required>
+          <input type="text" name="city" placeholder="City" required />
+          <input type="text" name="region" placeholder="Region" required />
+          <input type="text" name="postalCode" placeholder="Postal / Zip code" required />
+          <select name="country" required>
             <option selected value="" disabled>Country</option>
             <option value="1">Russia</option>
             <option value="2">Germany</option>
@@ -56,24 +58,23 @@
       </div>
       <div class="item">
         <p>Total number of adults</p>
-        <input type="text" name="adults" />
+        <input type="number" name="adults" min="0" />
       </div>
       <div class="item">
         <p>Adults' names</p>
-        <textarea rows="3"></textarea>
-        Yes
+        <textarea name="adultsNames" rows="3"></textarea>
       </div>
       <div class="item">
         <p>Total number of children</p>
-        <input type="text" name="adults" />
+        <input type="number" name="children" min="0" />
       </div>
       <div class="item">
         <p>Children names and ages</p>
-        <textarea rows="3"></textarea>
+        <textarea name="childrenNames" rows="3"></textarea>
       </div>
       <div class="item">
         <p>Type of travel</p>
-        <select required>
+        <select name="travelType" required>
           <option value="">Business</option>
           <option value="1">Adventure</option>
           <option value="2">Cultural</option>
@@ -96,15 +97,15 @@
       </div>
       <div class="item">
         <p>Number of rooms</p>
-        <input type="text" name="number" />
+        <input type="number" name="numberOfRooms" min="1" />
       </div>
       <div class="item">
         <p>Size of group</p>
-        <input type="text" name="size" />
+        <input type="number" name="groupSize" min="1" />
       </div>
       <div class="item">
         <p>King / double / suite / penthouse</p>
-        <input type="text" name="room" />
+        <input type="text" name="roomType" />
       </div>
       <div class="question">
         <p>Transportation to and from hotel</p>
@@ -121,7 +122,7 @@
       </div>
       <div class="item">
         <p>Estimated trip amount</p>
-        <input type="number" name="amount" placeholder="USD 0.00" />
+        <input type="number" name="amount" placeholder="USD 0.00" min="0" step="0.01" />
       </div>
       <div class="question">
         <p>Is anyone traveling over the Age of 55?</p>
@@ -135,43 +136,44 @@
             <label for="radio_4" class="radio"><span>No</span></label>
           </div>
         </div>
-        <div class="question">
-          <p>Does anyone traveling have a military background?</p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_5" name="question3" />
-              <label for="radio_5" class="radio"><span>Yes</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_6" name="question3" />
-              <label for="radio_6" class="radio"><span>No</span></label>
-            </div>
+      </div>
+      <div class="question">
+        <p>Does anyone traveling have a military background?</p>
+        <div class="question-answer">
+          <div>
+            <input type="radio" value="none" id="radio_5" name="question3" />
+            <label for="radio_5" class="radio"><span>Yes</span></label>
+          </div>
+          <div>
+            <input type="radio" value="none" id="radio_6" name="question3" />
+            <label for="radio_6" class="radio"><span>No</span></label>
           </div>
         </div>
-        <div class="item">
-          <p>Special instructions</p>
-          <textarea rows="3"></textarea>
-        </div>
-        <div class="item">
-          <p>Activities: spa, golf, excursion, event ticket, shows, etc.</p>
-          <textarea rows="3"></textarea>
-        </div>
-        <div class="question">
-          <p>Include travel insurance</p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_7" name="question4" />
-              <label for="radio_7" class="radio"><span>Yes</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_8" name="question4" />
-              <label for="radio_8" class="radio"><span>No</span></label>
-            </div>
+      </div>
+      <div class="item">
+        <p>Special instructions</p>
+        <textarea name="specialInstructions" rows="3"></textarea>
+      </div>
+      <div class="item">
+        <p>Activities: spa, golf, excursion, event ticket, shows, etc.</p>
+        <textarea name="activities" rows="3"></textarea>
+      </div>
+      <div class="question">
+        <p>Include travel insurance</p>
+        <div class="question-answer">
+          <div>
+            <input type="radio" value="none" id="radio_7" name="question4" />
+            <label for="radio_7" class="radio"><span>Yes</span></label>
+          </div>
+          <div>
+            <input type="radio" value="none" id="radio_8" name="question4" />
+            <label for="radio_8" class="radio"><span>No</span></label>
           </div>
         </div>
-        <div class="btn-block">
-          <button type="submit" href="/">Book</button>
-        </div>
+      </div>
+      <div class="btn-block">
+        <button type="submit">Book</button>
+      </div>
     </form>
   </div>
 </body>
